@@ -9,6 +9,22 @@ import { CartProvider } from './context/cart_context';
 import { UserProvider } from './context/user_context';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root =ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<App />);
+//dev-d0y4vhbwl1hv70n8.us.auth0.com
+//kQ5KujUiYQKarMPnbsRSgq1VtYZ9c0tb
+root.render(
+  
+   
+    
+    <ProductsProvider>
+        <FilterProvider>
+            <CartProvider>
+        <App/>
+        </CartProvider>
+        </FilterProvider>
+    </ProductsProvider>
+    
+   
+    
+)

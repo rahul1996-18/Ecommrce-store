@@ -45,9 +45,9 @@ const filter_reducer = (state, action) => {
         return a.name.localeCompare(b.name);
       });
     }
-if (sort === "name-z") {
+    if (sort === "name-z") {
       tempProducts = tempProducts.sort((a, b) => {
-        return a.name.localeCompare(b.name);
+        return b.name.localeCompare(a.name);
       });
     }
     return { ...state, filtered_products: tempProducts };
@@ -66,26 +66,28 @@ if (sort === "name-z") {
         return product.name.toLowerCase().startsWith(text);
       });
     }
-    if(category !=="all"){
-      tempProducts=tempProducts.filter((product)=>{
-        return product.category===category
-      })
+    if (category !== "all") {
+      tempProducts = tempProducts.filter((product) => {
+        return product.category === category;
+      });
     }
-    if(company !=="all"){
-      tempProducts=tempProducts.filter((product)=>{
-        return product.company===company
-      })
+    if (company !== "all") {
+      tempProducts = tempProducts.filter((product) => {
+        return product.company === company;
+      });
     }
-    if(color !=="all"){
-      tempProducts=tempProducts.filter((product)=>{
-        return product.colors.find((c)=>c===color)
-      })
+    if (color !== "all") {
+      tempProducts = tempProducts.filter((product) => {
+        return product.colors.find((c) => c === color);
+      });
     }
-    tempProducts=tempProducts.filter((product)=>product.price<=price)
-    if(shipping){
-      tempProducts=tempProducts.filter((product)=>product.shipping===true)
+    tempProducts = tempProducts.filter((product) => product.price <= price);
+    if (shipping) {
+      tempProducts = tempProducts.filter(
+        (product) => product.shipping === true
+      );
     }
-    
+
     return { ...state, filtered_products: tempProducts };
   }
   if (action.type === CLEAR_FILTERS) {

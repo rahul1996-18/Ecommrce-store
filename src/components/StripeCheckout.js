@@ -25,6 +25,7 @@ const StripeCheckout = () => {
   )
 }
 
+
 const Wrapper = styled.section`
   form {
     width: 30vw;
